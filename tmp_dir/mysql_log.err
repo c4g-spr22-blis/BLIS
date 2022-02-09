@@ -1,0 +1,59 @@
+210910 15:45:19  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/refman/5.0/en/operating-system-error-codes.html
+InnoDB: File name C:\Users\lohit\Documents\GRA\C4G_BLIS_v3.6\dbdir\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+210910 21:18:19  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+210910 21:18:19  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 51455032.
+InnoDB: Doing recovery: scanned up to log sequence number 0 51455032
+210910 21:18:19  InnoDB: Started; log sequence number 0 51455032
+210910 21:18:19 [Note] MySQL: ready for connections.
+Version: '5.0.41-community-nt'  socket: ''  port: 7188  MySQL Community Edition (GPL)
+210910 21:19:37 [Note] MySQL: Normal shutdown
+
+210910 21:19:37  InnoDB: Starting shutdown...
+210910 21:19:40  InnoDB: Shutdown completed; log sequence number 0 51455032
+210910 21:19:40 [Note] MySQL: Shutdown complete
+
+210910 21:21:29  InnoDB: Started; log sequence number 0 51455032
+210910 21:21:30 [Note] MySQL: ready for connections.
+Version: '5.0.41-community-nt'  socket: ''  port: 7188  MySQL Community Edition (GPL)
+210910 21:22:35 [Note] MySQL: Normal shutdown
+
+210910 21:22:35  InnoDB: Starting shutdown...
+210910 21:22:36  InnoDB: Shutdown completed; log sequence number 0 51455032
+210910 21:22:36 [Note] MySQL: Shutdown complete
+
+210910 21:23:01  InnoDB: Started; log sequence number 0 51455032
+210910 21:23:01 [Note] MySQL: ready for connections.
+Version: '5.0.41-community-nt'  socket: ''  port: 7188  MySQL Community Edition (GPL)
+210910 21:30:11 [Note] MySQL: Normal shutdown
+
+210910 21:30:11  InnoDB: Starting shutdown...
+210910 21:30:13  InnoDB: Shutdown completed; log sequence number 0 51455032
+210910 21:30:13 [Note] MySQL: Shutdown complete
+
+210910 21:34:05  InnoDB: Started; log sequence number 0 51455032
+210910 21:34:05 [Note] MySQL: ready for connections.
+Version: '5.0.41-community-nt'  socket: ''  port: 7188  MySQL Community Edition (GPL)
+210911  0:05:22 [Note] MySQL: Normal shutdown
+
+210911  0:05:22  InnoDB: Starting shutdown...
+210911  0:05:24  InnoDB: Shutdown completed; log sequence number 0 51455032
+210911  0:05:24 [Note] MySQL: Shutdown complete
+
+210913 13:16:48  InnoDB: Started; log sequence number 0 51455032
+210913 13:16:48 [Note] MySQL: ready for connections.
+Version: '5.0.41-community-nt'  socket: ''  port: 7188  MySQL Community Edition (GPL)
+210918  9:59:07 [Note] MySQL: Normal shutdown
+
+210918  9:59:07  InnoDB: Starting shutdown...
+210918  9:59:10  InnoDB: Shutdown completed; log sequence number 0 51457404
+210918  9:59:10 [Note] MySQL: Shutdown complete
+
