@@ -1,4 +1,5 @@
 <?php
+require_once("../includes/composer.php");
 require_once("../includes/db_lib.php");
 require_once("../includes/platform_lib.php");
 require_once("redirect.php");
@@ -144,13 +145,7 @@ if ($backupType == "encrypted") {
 }
 $file_list1[] = $backupLabDbFileNameEnc;
 
-$server_public_key = openssl_pkey_get_public($pubKey);
-if (!$server_public_key) {
-    echo "Unable to open " . $ploc;
-    return;
-}
-
-encryptFile($backupLabDbFileName, $server_public_key);
+encryptFile($backupLabDbFileName, $pubKey);
 $backupDbFileName = "blis_revamp_backup.sql";
 
 $dbname = "blis_revamp";
@@ -172,7 +167,7 @@ if ($backupType == "encrypted") {
 } else {
     $backupDbFileNameEnc = $backupDbFileName;
 }
-encryptFile($backupDbFileNameEnc, $server_public_key);
+encryptFile($backupDbFileNameEnc, $pubKey);
 $file_list2[] = $backupDbFileNameEnc;
 
 $dir_name3 = "../../local/langdata_".$lab_config_id;
@@ -240,7 +235,7 @@ $log_file2 = "../../local/log_".$lab_config_id."_updates.sql";
 $log_file3 = "../../local/log_".$lab_config_id."_revamp_updates.sql";
 
 if (file_exists($log_file1)) {
-    encryptFile($log_file1, $server_public_key);
+    encryptFile($log_file1, $pubKey);
     $copyDestination = $destination."log_".$lab_config_id.".txt";
     if ($backupType == "encrypted") {
         $fileHandle = fopen($log_file1, "r");
@@ -263,7 +258,7 @@ if (file_exists($log_file1)) {
 }
 
 if (file_exists($log_file2)) {
-    encryptFile($log_file2, $server_public_key);
+    encryptFile($log_file2, $pubKey);
     $copyDestination = $destination."log_".$lab_config_id."_updates.sql";
     if ($backupType == "encrypted") {
         $fileHandle = fopen($log_file2, "r");
@@ -285,7 +280,7 @@ if (file_exists($log_file2)) {
     //unlink($logFile);
 }
 if (file_exists($log_file3)) {
-    encryptFile($log_file3, $server_public_key);
+    encryptFile($log_file3, $pubKey);
     $copyDestination = $destination."log_".$lab_config_id."_revamp_updates.sql";
     if ($backupType == "encrypted") {
         $fileHandle = fopen($log_file3, "r");
@@ -321,7 +316,7 @@ $i = 0;
 
 foreach ($uilog_files as $log_file3) {
     if (file_exists($log_file3)) {
-        encryptFile($log_file3, $server_public_key);
+        encryptFile($log_file3, $pubKey);
         $vers = $versions[$i];
         $copyDestination = $destination."UILog_".$vers.".csv";
         if ($backupType == "encrypted") {
@@ -373,39 +368,29 @@ function hasFile()
 }
 function encryptFile($fname, $pub)
 {
+    global $log;
+
     if (KeyMgmt::read_enc_setting()==0) {
         return;
     }
+    $log->info("Encrypting $fname with $pub");
     $data=file_get_contents($fname);
+    $pubkey=openssl_get_publickey($pub);
     $sealed = '';
-    openssl_seal($data, $sealed, $ekeys, array($pub));
-    $env_key = $ekeys[0];
-    file_put_contents($fname.".key", base64_encode($env_key));
+    $ekeys = [];
+    $res = openssl_seal($data, $sealed, $ekeys, array($pubkey));
+    if (!$res) {
+        $log->error("Error encrypting: ".openssl_error_string());
+        return;
+    }
+    openssl_free_key($pubkey);
+    $env_key = base64_encode($ekeys[0]);
+    $log->info("Backup key for $fname: $env_key");
+    file_put_contents($fname.".key", $env_key);
     $f=fopen($fname, "w");
     fwrite($f, $sealed);
     fclose($f);
     //file_put_contents($fname,base64_encode($sealed));
-}
-function encryptFile1($fname, $pubKey)
-{
-    $fileHandle = fopen($fname, "r");
-    $fnameEnc = $fname.".enc";
-    $fileWriteHandle = fopen($fnameEnc, "w");
-    ini_set('auto_detect_line_endings', true);
-    while (!feof($fileHandle)) {
-        $line = fgets($fileHandle);
-        $return = openssl_public_encrypt($line, $encLine, $pubKey, OPENSSL_PKCS1_PADDING);
-        if ($return) {
-            fwrite($fileWriteHandle, base64_encode($encLine)."\r\n");
-        } else {
-            fwrite($fileWriteHandle, "~".$line."\r\n");
-        }
-    }
-    fclose($fileWriteHandle);
-    fclose($fileHandle);
-    $temp=file_get_contents($fnameEnc);
-    file_put_contents($fname, $temp);
-    unlink($fnameEnc);
 }
 function createZipFile($zipFile, $rootPath)
 {

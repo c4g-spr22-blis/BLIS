@@ -4754,8 +4754,8 @@ class CustomField
 			$name=$record['field_name'];
 			$name_string=explode("^^" , $name);
 			$custom_field->fieldName=$name_string[0];
-			if($name_string[1]!=NULL|| $name_string!="")
-			$custom_field->flag=$name_string[1];
+			if(count($name_string) > 0)
+			$custom_field->flag=$name_string[0];
 			else
 			$custom_field->flag=0;
 		}
@@ -14824,7 +14824,7 @@ function insert_lab_config_settings_search($num)
     $query_string = "SELECT count(*) as val from lab_config_settings WHERE id = $id";
     $recordset = query_associative_one($query_string);        
     
-    if($recordset[val] != 0)
+    if($recordset['val'] != 0)
         return 0;
     $remarks = "Search Settings";
     $query_string = "INSERT INTO lab_config_settings (id, flag1, remarks) ".

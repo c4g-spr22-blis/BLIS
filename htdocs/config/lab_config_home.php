@@ -10,6 +10,8 @@ include("includes/header.php");
 include("includes/random.php");
 include("includes/stats_lib.php");
 
+require_once(__DIR__.'/../includes/composer.php');
+
 include_once("includes/field_order_update.php");
 
 LangUtil::setPageId("lab_config_home");
@@ -59,6 +61,7 @@ $script_elems->enableJQueryForm();
 	<p>This has the following options:</p>
 	<ul>
 		<?php
+		$log->info('made it past this');
 		if(LangUtil::$pageTerms['TIPS_SPECIMENTESTTYPES']!="-") {
 			echo "<li>";
 			echo LangUtil::$pageTerms['TIPS_SPECIMENTESTTYPES'];
@@ -251,14 +254,17 @@ $script_elems->enableJQueryForm();
 <?php
 
 $lab_config_id = $_REQUEST['id'];
+$log->info("it's the thing $lab_config_id");
 $user = get_user_by_id($_SESSION['user_id']);
-if ( !((is_country_dir($user)) || (is_super_admin($user)) ) ) {
+if ( !(is_country_dir($user) || is_super_admin($user)) ) {
+	$log->info("inside the if");
 	$saved_db = DbUtil::switchToGlobal();
 	$query = "SELECT lab_config_id FROM lab_config WHERE admin_user_id = ".$_SESSION['user_id'].
     " OR lab_config_id IN ( ".
     "	SELECT lab_config_id FROM lab_config_access ".
     "	WHERE user_id='".$_SESSION['user_id'] .
     "') ORDER BY name";
+	$log->info($query);
 	$record = query_associative_one($query);
 	$labId = $record['lab_config_id'];
 	if($labId != $lab_config_id) {
@@ -288,8 +294,8 @@ if($lab_config == null)
 	return;
 }
 
-$field_odering_patients = field_order_update::install_first_order($lab_config, 1);
-$field_odering_specimen = field_order_update::install_first_order($lab_config, 2);
+$field_odering_patients = field_order_update::install_first_order($lab_config, 1, $lab_config_id);
+$field_odering_specimen = field_order_update::install_first_order($lab_config, 2, $lab_config_id);
 ?>
 <style type='text/css'>
 

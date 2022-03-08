@@ -2,6 +2,7 @@
 
 //include("db_lib.php");
 
+require_once(__DIR__.'/composer.php');
 
 
 class field_order_update{
@@ -73,13 +74,13 @@ $short_name = "ageLimit";
 return $short_name;
 }
 
-public static function install_first_order($lab_config, $formId){ 
-	$field_ordering_for_curent_lab = FieldOrdering::getByFormId($_SESSION['lab_config_id'], $formId);
+public static function install_first_order($lab_config, $formId, $lab_config_id){ 
+	$field_ordering_for_curent_lab = FieldOrdering::getByFormId($lab_config_id, $formId);
 
 	if($field_ordering_for_curent_lab == null){
 	// insert the order for the first time
 	// 1. Get the current lab config info from the LabConfig Class
-		//$lab_config = LabConfig::getById($_SESSION['lab_config_id']);
+		//$lab_config = LabConfig::getById($lab_config_id);
 		//$custom_field_list_patients = get_lab_config_patient_custom_fields($lab_config->id);
 	// 2. Parse the object and populate the new fieldOrder Object
 		//$fieldOrdering_new = new FieldOrdering();
@@ -87,7 +88,7 @@ public static function install_first_order($lab_config, $formId){
 
 		 // default values
 		$field_ordering->form_id = $formId;
-		$field_ordering->id = $_SESSION['lab_config_id'];
+		$field_ordering->id = $lab_config_id;
 
 		$count = 1;
 		
@@ -107,7 +108,7 @@ public static function install_first_order($lab_config, $formId){
 				$count++;
 			}//dnum
 			if(isset($lab_config->dailyNum) &&  $lab_config->dailyNum > 0){
-				$field_ordering->{field.$count} = "Daily Number";
+				// $field_ordering->{field.$count} = "Daily Number";
 				$field_order = $field_order.","."Daily Number";
 				$count++;
 			}//pname
@@ -189,9 +190,7 @@ public static function install_first_order($lab_config, $formId){
 
 	// 3. Insert the newly created order
 		$field_ordering->form_field_inOrder = $field_order;
-
 		FieldOrdering::add_fieldOrdering($field_ordering);
-
 		$field_ordering_for_curent_lab = $field_ordering;
 	}
 
