@@ -8,6 +8,8 @@ include("includes/db_lib.php");
 include("includes/random.php");
 include("lang/lang_xml2php.php");
 
+require_once(__DIR__."/../includes/composer.php");
+
 putUILog('lab_config_add', 'X', basename($_SERVER['REQUEST_URI'], ".php"), 'X', 'X', 'X');
 
 
@@ -60,7 +62,7 @@ $saved_db = DbUtil::switchToGlobal();
 $query = "SELECT country from lab_config";
 $records = query_associative_all($query);
 foreach($records as $record) {
-	if ( strcmp($record['country'], $country) == 0 ) 
+	if ( strcmp($record['country'], $country) == 0 )
 		$count++;
 }
 $count++;
@@ -215,6 +217,7 @@ if ($handle = opendir($dir_name1))
 		$file_list1[] = $dir_name1."/$file";
 	}
 }
+
 $destination = $LOCAL_PATH."langdata_".$lab_config_id;
 foreach($file_list1 as $file)
 {
