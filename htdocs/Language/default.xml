@@ -6,6 +6,14 @@
 			<value>Tips</value>
 		</term>
 		<term>
+			<key>CLOUD_RECEIVE</key>		
+			<value>Central Node Receive the Backup File</value>
+		</term>
+		<term>
+			<key>CLOUD_SYNC</key>		
+			<value>Central Node Sync the Backup File</value>
+		</term>
+		<term>
 			<key>USERNAME</key>
 			<value>Username</value>
 		</term>
@@ -2499,6 +2507,14 @@
 		<term>
 			<key>MENU_BACKUP</key>
 			<value>Backup Data</value>
+		</term>
+		<term>
+		<key>CLOUD_RECEIVE</key>		
+			<value>Central Node Receive the Backup File</value>
+		</term>
+		<term>
+			<key>CLOUD_SYNC</key>		
+			<value>Central Node Sync the Backup File</value>
 		</term>
 		<term>
 			<key>TIPS_BACKUP</key>

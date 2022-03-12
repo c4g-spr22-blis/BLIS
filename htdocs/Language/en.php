@@ -2,6 +2,8 @@
 $LANG_ARRAY = array ( 
 		"general" => array ( 
 "backup_tip"=>"Select the receiver who should be able to revert this backup. 'Current Lab' will create backups that can be reverted on this lab for current instance of BLIS. If the receiver you have selected does not exist in the system, you will be prompted to upload their public key. The public key can be obtained by contacting the receiver. Public Key is a .blis file and can be obtained by lab managers under the lab configuration -> Manage Backup Keys -> Download Public Key option.",
+		"CLOUD_RECEIVE" => "Central Node Receive the Backup File",
+		"CLOUD_SYNC" => "Central Node Sync the Backup File",
 		"TIPS" => "Tips", 
 		"USERNAME" => "Username", 
 		"PWD" => "Password", 
@@ -722,6 +724,8 @@ $LANG_ARRAY = array (
 		"TIPS_TC_SPECIMENTYPE_2" => "We can use this page to edit existing specimen types. Tests compatible with a particular specimen type can added/deleted by checking the appropriate boxes located here.", 
 		"TIPS_TC_SPECIMENTYPE_3" => "New specimen types can also be added using the Add New option located near the top of the Page.", 
 		"MENU_BACKUPDATA" => "Backup Data", 
+		"CLOUD_RECEIVE" => "Central Node Receive the Backup File",
+		"CLOUD_SYNC" => "Central Node Sync the Backup File",
 		"TIPS_BACKUPDATA" => "This option takes a backup of the system and stores it on the local drive. This option is only available to the Admin.", 
 		"MENU_REGISTRATION" => "Registration", 
 		"TIPS_REGISTRATION_1" => "This page allows us to register new patients or lookup existing patients based on name, patient ID or number.", 
