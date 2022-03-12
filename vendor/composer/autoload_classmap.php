@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'TCPDF' => $vendorDir . '/jlabedo/tcpdf/tcpdf.php',
 );

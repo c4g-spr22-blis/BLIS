@@ -1,5 +1,7 @@
 {
     "require": {
-        "monolog/monolog": "^1.25"
+        "monolog/monolog": "^1.25",
+        "spipu/html2pdf": "4.4.0",
+        "jlabedo/tcpdf": "dev-master"
     }
 }

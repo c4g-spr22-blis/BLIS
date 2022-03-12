@@ -1,0 +1,24 @@
+{
+    "name": "jlabedo/tcpdf",
+    "version": "5.9.160",
+    "homepage": "http://www.tcpdf.org/",
+    "type": "library",
+    "description": "TCPDF is a PHP class for generating PDF files on-the-fly without requiring external extensions.",
+    "keywords": ["pdf"],
+    "license": "GPLv3",
+    "authors": [
+    {
+        "name": "Nicola Asuni",
+        "email": "nicola.asuni@tecnick.com",
+        "homepage": "http://www.tecnick.com/public/code/cp_dpage.php?aiocp_dp=cv_nicola_asuni_contacts"
+    }
+    ],
+    "require": {
+        "php": ">5.2"
+    },
+    "autoload": {
+        "classmap": [
+            "tcpdf.php"
+        ]
+    }
+}

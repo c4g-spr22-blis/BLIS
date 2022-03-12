@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit27914c8ce5ce5a7d3a53a3ab9a457d42
 {
+    public static $files = array (
+        '75d4b1647cdbc77a59f72bcb74df0995' => __DIR__ . '/..' . '/spipu/html2pdf/html2pdf.class.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'P' => 
         array (
@@ -30,6 +34,7 @@ class ComposerStaticInit27914c8ce5ce5a7d3a53a3ab9a457d42
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'TCPDF' => __DIR__ . '/..' . '/jlabedo/tcpdf/tcpdf.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

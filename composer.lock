@@ -4,8 +4,53 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "34e94f9c4b139d052429d05082b0d0fb",
+    "content-hash": "7b6e8a18a24ac29af45ae7c42131c721",
     "packages": [
+        {
+            "name": "jlabedo/tcpdf",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jlabedo/tcpdf.git",
+                "reference": "fd013d146f4c5572cf2943405c82a893e5e84e0a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jlabedo/tcpdf/zipball/fd013d146f4c5572cf2943405c82a893e5e84e0a",
+                "reference": "fd013d146f4c5572cf2943405c82a893e5e84e0a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">5.2"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "tcpdf.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPLv3"
+            ],
+            "authors": [
+                {
+                    "name": "Nicola Asuni",
+                    "email": "nicola.asuni@tecnick.com",
+                    "homepage": "http://www.tecnick.com/public/code/cp_dpage.php?aiocp_dp=cv_nicola_asuni_contacts"
+                }
+            ],
+            "description": "TCPDF is a PHP class for generating PDF files on-the-fly without requiring external extensions.",
+            "homepage": "http://www.tcpdf.org/",
+            "keywords": [
+                "pdf"
+            ],
+            "support": {
+                "source": "https://github.com/jlabedo/tcpdf/tree/master"
+            },
+            "time": "2012-05-14T23:15:32+00:00"
+        },
         {
             "name": "monolog/monolog",
             "version": "1.26.1",
@@ -141,12 +186,61 @@
                 "source": "https://github.com/php-fig/log/tree/1.1.4"
             },
             "time": "2021-05-03T11:20:27+00:00"
+        },
+        {
+            "name": "spipu/html2pdf",
+            "version": "v4.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spipu/html2pdf.git",
+                "reference": "2b86b570dd9058c1fc2383503d8b8628a977292d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spipu/html2pdf/zipball/2b86b570dd9058c1fc2383503d8b8628a977292d",
+                "reference": "2b86b570dd9058c1fc2383503d8b8628a977292d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "html2pdf.class.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Spipu",
+                    "homepage": "https://github.com/spipu",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP library to convert Html into Pdf",
+            "homepage": "http://html2pdf.fr/",
+            "keywords": [
+                "html",
+                "html2pdf",
+                "pdf"
+            ],
+            "support": {
+                "issues": "https://github.com/spipu/html2pdf/issues",
+                "source": "https://github.com/spipu/html2pdf/tree/v4.4.0"
+            },
+            "time": "2015-12-11T10:13:58+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "jlabedo/tcpdf": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

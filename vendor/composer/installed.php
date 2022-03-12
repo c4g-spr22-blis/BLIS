@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'a68473e5bc3a18f2e5b9d0eec62c491e9a088a64',
+        'reference' => '0d77454a1a24f40ed62c52735e01ebf687ff95b6',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,18 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'a68473e5bc3a18f2e5b9d0eec62c491e9a088a64',
+            'reference' => '0d77454a1a24f40ed62c52735e01ebf687ff95b6',
+            'dev_requirement' => false,
+        ),
+        'jlabedo/tcpdf' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jlabedo/tcpdf',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'reference' => 'fd013d146f4c5572cf2943405c82a893e5e84e0a',
             'dev_requirement' => false,
         ),
         'monolog/monolog' => array(
@@ -42,6 +53,15 @@
             'provided' => array(
                 0 => '1.0.0',
             ),
+        ),
+        'spipu/html2pdf' => array(
+            'pretty_version' => 'v4.4.0',
+            'version' => '4.4.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../spipu/html2pdf',
+            'aliases' => array(),
+            'reference' => '2b86b570dd9058c1fc2383503d8b8628a977292d',
+            'dev_requirement' => false,
         ),
     ),
 );
