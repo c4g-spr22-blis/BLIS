@@ -8295,10 +8295,10 @@ function get_patients_by_name_or_id($search_term)
 
 function update_patient($modified_record)
 {
+    global $log;
+
 	# Updates an existing patient record
 	# Called from ajax/patient_update.php
-	$myFile = "../../local/myFile.txt";
-$fh = fopen($myFile, 'a') or die("can't open file");
 $pid = $modified_record->patientId;
 	$current_record = get_patient_by_id($pid);
 	if($modified_record->name == "")
@@ -8340,8 +8340,7 @@ $pid = $modified_record->patientId;
 	else if($modified_record->dob != "")
 		$query_string .= "age=$modified_record->age, partial_dob='', dob='$modified_record->dob' ";
 	$query_string .= "WHERE patient_id=$pid";
-	fwrite($fh, $query_string);
-fclose($fh);
+	$log->info("Update patient query string: $query_string");
 	query_blind($query_string);
 	# Addition of custom fields: done from calling function/page
 	return true;
