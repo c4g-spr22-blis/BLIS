@@ -109,6 +109,14 @@ function capLock(e)
 	else
 		$('#caps_lock_msg_div').hide();
 }
+
+function capLock2(e)
+{
+	if (e.getModifierState("CapsLock"))
+		$('#caps_lock_msg_div').show();
+	else
+		$('#caps_lock_msg_div').hide();
+}
 </script>
 
 <table>
@@ -182,7 +190,8 @@ function capLock(e)
 							<?php echo LangUtil::getGeneralTerm("PWD"); ?>
 						</td>
 						<td>
-							<input type="password" name="password" id = "password" value="" size="20" class='uniform_width' onkeypress="javascript:capLock(event);" onkeydown="javascript:capLock(event);" />
+							<input type="password" name="password" id = "password" value="" size="20" class='uniform_width' onkeypress="javascript:capLock(event);" onkeydown="javascript:capLock(event);" onkeyup="javascript:capLock2(event);"  /> 
+							<!-- onkeydown="javascript:capLock(event);" -->
 							<label class="error" for="password" id="password_error"><small><font color="red"><?php echo LangUtil::getGeneralTerm("MSG_REQDFIELD"); ?></font></small></label>
 							<br>
 							<div id="caps_lock_msg_div" style="display:none"><font color='red'><small><?php echo LangUtil::getPageTerm("MSG_CAPSLOCK"); ?></small></font></div>
