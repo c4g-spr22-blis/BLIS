@@ -253,11 +253,82 @@ To upload the public key, click **Browse** and use the File Upload navigational 
 <img src="../images/user_guide/add_key_alias.png" width="50%"/>
 
 ### Export Configuration <a name="export_configuration"></a>
+The **Export Configuration** page allows you to export all configuration settings to Microsoft Word. Clicking this link opens a new browser tab with a preview showing all preset and custom fields as well as report settings. The preview has three buttons at the top: Print, Export as Word document, and Close.
+Click the **Print** button to open the print dialog box; **Export as Word document** to create a file named **blisreport_[date of report].doc**, which you may open or save, or **Close** to close this browser tab.
 
+<img src="../images/user_guide/export_configuration.png" width="50%"/>
 
 ## Test Catalog <a name="test_catalog"></a>
+The **Test Catalog** page allows the Manager to add or edit specimen or test types used in their laboratory.
+
+<img src="../images/user_guide/test_catalog.png" width="50%"/>
+
+### Specimen Type
+The **Specimen Type** page allows for adding or editing specimen types used in the laboratory.
+
+<img src="../images/user_guide/test_catalog_specimen.png" width="50%"/>
+
+Click **Add** New to enter a new specimen type. Required fields are **Name**, which is a text box for entering the name of the specimen, and **Compatible Tests**, which allows you to check the tests that can be performed using that specimen. **Ctrl-F** opens the Find function to search for a test. You may enter a **Description** of the specimen type, which is optional.
+
+To edit the information about a specimen type, find the one you wish to edit on the list
+and then click the **Edit** link in the far-right column.
+
+Click **Submit** button to save changes, **Cancel** to discard.
+
+<img src="../images/user_guide/test_catalog_specimen_edit.png" width="50%"/>
+
+### Test Type
+The **Test Type** page allows for adding or editing test types used in the laboratory. It is controlled the same way as Specimen Types.
+
+<img src="../images/user_guide/test_catalog_test.png" width="50%"/>
+
+Click **Add New** to enter a new test type. Required fields are Name, which is a text box; **Lab Section**, a drop-down list that includes an option to add a new section; **Measures**, which are editable; and **Compatible Specimens**, which allows you to check one or more specimens that can be used for this test.
+
+Optional fields include **Description** (text box), **Clinical Data**, **Panel Test** (a check-box, checked for Yes), **Hide Patient’s Name** (drop-down Yes/No), **Prevalence Threshold** (text box), and **Target TAT** (text box).
+
+To edit the information about a test type, find the one you wish to edit on the list and then click the **Edit** link in the far-right column.
+
+Click **Submit** button to save changes, or **Cancel** to discard.
+
+<img src="../images/user_guide/test_catalog_test_edit.png" width="50%"/>
+
 
 ## Reports <a name="reports"></a>
+The **Reports** page can be accessed by either the Technician or Manager. 
+
+<img src="../images/user_guide/reports.png" width="50%"/>
+
+### Daily Reports
+The **Daily Reports** should be generated each day for both the Patient Report and also Daily Log.
+
+#### Patient Report
+The **Patient Reports** page generates reports for each searchable patient. 
+
+Search for the patient by Patient Name, Patient Number, or Patient ID and Lab Section to which the patients' specimen are registered against. Click the **Search** button to start search. Select the patient you want from the list if more than one patient matches your search criteria. Click **View Report** to see all data for that patient, or **Select Tests** to see tests ordered and the results for that patient.
+
+You can edit the report to show activity within a date range, include pending tests for which results are not available, set printing information, or export to Word using the controls at the top of the page.
+
+<img src="../images/user_guide/patient_reports.png" width="50%"/>
+
+#### Daily Log
+The **Daily Log** creats a report of the day's activity.
+
+Set the date range to reflect the log to print. You can run a report of the day’s activity by patients seen (by clicking **Patient Records**), or by tests run (by clicking **Test Records**). If you choose Test Records, You can choose to run a log for one lab section or for one type of test. The default settings are test records, all sections, and all tests. The report opens in a new browser tab and has **Print** and **Export** controls at the top of the page.
+
+Also patient barcodes for each patient with the number of specimens they have handed over can also be printed over a given a range of time by selecting the **Patient Barcode** option.
+
+<img src="../images/user_guide/daily_log.png" width="50%"/>
+
+### Aggregate Reports
+Aggregate Reports generates reports for specific data selected by the user.
+
+#### Prevalence Rate
+
+#### Counts
+
+#### Turnaround Time
+
+
 
 ## Backup Data <a name="backup_data"></a>
 The **Backup Data** feature was created for two reasons - to revert to a previously backed-up copy in cases of system failure, but also to create a backup file of the current laboratory patient data for uploading to a **BLIS on Cloud** version. 
@@ -285,4 +356,20 @@ Additionally, if a Backup IP Address was previously set in **Lab Configuration**
 <img src="../images/user_guide/download_successful.png" width="50%"/>
 
 ## Technician Overview <a name="technician_overview"></a>
+The technician interface allows the Technician to do the following:
+1. Register new patients and look up existing patients
+2. Add results for a patient based on the specimens provided
+3. Manage existing reagents currently being tracked in BLIS
+
+### Registration
+The **Registration** page allows the Technician to register new patients or lookup existing patients based on name, patient ID or number.
+
+### Add New Patient
+Click on the hyperlink to *Add New Patient >>* illustrated in the red circle in the image below.
+
+<img src="../images/user_guide/add_new_patient.png" width="50%"/>
+
+
+
+<img src="../images/user_guide/add_new_patient_2.png" width="50%"/>
 
